@@ -1,27 +1,27 @@
-import request from "../request";
+import request from '../request'
 
 interface UserData {
-  name: string,
+  name: string
   password: string
 }
 interface UserStatus {
-  name: string,
+  name: string
   token: string
 }
 function login(data: UserData) {
   return request<UserStatus>(
     {
-      url: "/api/login",
-      method: "post",
-      data
+      url: '/api/login',
+      method: 'post',
+      data,
     },
     {
       loading: true,
     },
     {
-      text: "等待中",
-    }
-  );
+      text: '等待中',
+    },
+  )
 }
 
 export default {

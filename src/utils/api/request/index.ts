@@ -8,11 +8,12 @@
  *
  * Copyright (c) 2022 by glows777 1914426389@qq.com, All Rights Reserved.
  */
-import axios, {AxiosError, AxiosRequestConfig, AxiosResponse} from 'axios'
+import type { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
+import axios from 'axios'
 import cancel from './cancel'
 import loading from './loading'
 import errorHandle from './error'
-import { ResponseType, CustomOptionsType, LoadingOptionType } from '~/types/request'
+import type { CustomOptionsType, LoadingOptionType, ResponseType } from '~/types/request'
 
 /**
  * @author: glows777

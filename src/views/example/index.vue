@@ -4,9 +4,9 @@
  * @LastEditors: glows777 1914426389@qq.com
  * @LastEditTime: 2023-02-03 21:35:05
  * @FilePath: \glows777-admin-platform\src\views\example\index.vue
- * @Description: 
- * 
- * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
+ * @Description:
+ *
+ * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved.
 -->
 <!--
  * @Author: glows777 1914426389@qq.com

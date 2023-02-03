@@ -31,8 +31,8 @@ const routes = [
   },
   {
     path: '/login',
-    component: lazyImport('login')
-  }
+    component: lazyImport('login'),
+  },
 ]
 
 const router = createRouter({
