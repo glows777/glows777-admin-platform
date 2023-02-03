@@ -1,15 +1,25 @@
 <!--
  * @Author: glows777 1914426389@qq.com
+ * @Date: 2022-12-31 20:24:14
+ * @LastEditors: glows777 1914426389@qq.com
+ * @LastEditTime: 2023-02-03 21:35:05
+ * @FilePath: \glows777-admin-platform\src\views\example\index.vue
+ * @Description: 
+ * 
+ * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
+-->
+<!--
+ * @Author: glows777 1914426389@qq.com
  * @Date: 2022-12-16 13:43:12
  * @LastEditors: glows777 1914426389@qq.com
- * @LastEditTime: 2022-12-30 09:07:51
- * @FilePath: \vue-admin\src\views\example\index.vue
+ * @LastEditTime: 2023-02-03 17:57:40
+ * @FilePath: \glows777-admin-platform\src\views\example\index.vue
  * @Description: 本页仅用于展示如何使用
  *
  * Copyright (c) 2022 by glows777 1914426389@qq.com, All Rights Reserved.
 -->
 <script setup lang="ts">
-import { useCounterStore } from '~/store/counter'
+import { useCounterStore } from '~/store/modules/counter/counter'
 import { getListAPI, getMockUserStatus } from '~/utils/api'
 
 const counterStore = useCounterStore()
@@ -35,7 +45,7 @@ const triggerMockRequest = async () => {
 
 <template>
   <!-- <hello-world msg="hhh"></hello-world> -->
-  <notification type="error" message="uuuu" />
+  <!-- <notification type="error" message="uuuu" /> -->
   <h1 class="scss-test">
     .env.VITE_API_URL: =》 {{ viteApiUrl }}
   </h1>

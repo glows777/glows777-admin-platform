@@ -2,8 +2,8 @@
  * @Author: glows777 1914426389@qq.com
  * @Date: 2022-11-10 13:44:56
  * @LastEditors: glows777 1914426389@qq.com
- * @LastEditTime: 2022-12-16 15:48:30
- * @FilePath: \vue-admin\src\store\counter.ts
+ * @LastEditTime: 2023-02-03 21:36:05
+ * @FilePath: \glows777-admin-platform\src\store\modules\counter.ts
  * @Description:
  *
  * Copyright (c) 2022 by glows777 1914426389@qq.com, All Rights Reserved.

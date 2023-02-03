@@ -2,8 +2,8 @@
  * @Author: glows777 1914426389@qq.com
  * @Date: 2022-12-15 15:22:53
  * @LastEditors: glows777 1914426389@qq.com
- * @LastEditTime: 2022-12-16 14:51:51
- * @FilePath: \vue-admin\src\router\index.ts
+ * @LastEditTime: 2023-01-03 17:05:15
+ * @FilePath: \glows777-admin-platform\src\router\index.ts
  * @Description:
  *
  * Copyright (c) 2022 by glows777 1914426389@qq.com, All Rights Reserved.
@@ -29,6 +29,10 @@ const routes = [
     path: '/example',
     component: lazyImport('example'),
   },
+  {
+    path: '/login',
+    component: lazyImport('login')
+  }
 ]
 
 const router = createRouter({

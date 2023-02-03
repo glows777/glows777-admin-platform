@@ -1,4 +1,4 @@
-interface CustomOptionsType {
+export interface CustomOptionsType {
     repeat_request_cancel: boolean,
     loading: boolean, 
     concise_data_format: boolean,
@@ -6,13 +6,17 @@ interface CustomOptionsType {
     code_message_show: boolean
 }
 
-interface AxiosConfigType {
-    url: string,
-    method: string
-    [key: string]: any
+export interface ResponseType<T> {
+    code: number,
+    message: string,
+    data: T
 }
 
-interface LoadingOptionType {
+// url: string,
+// method: string
+// [key: string]: any
+
+export interface LoadingOptionType {
     text?: string,
     fullscreen?: boolean,
     background?: string,

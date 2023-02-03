@@ -8,6 +8,7 @@
  *
  * Copyright (c) 2022 by glows777 1914426389@qq.com, All Rights Reserved.
  */
+import {CustomOptionsType} from "~/types/request"
 const LoadingInstance: any = {
   _target: null,
   _count: 0,

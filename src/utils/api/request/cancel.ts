@@ -8,7 +8,7 @@
  *
  * Copyright (c) 2022 by glows777 1914426389@qq.com, All Rights Reserved.
  */
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 
 const pendingMap = new Map()
 
@@ -18,7 +18,7 @@ const pendingMap = new Map()
  * @param {any} config
  * @return {*}
  */
-function getPendingKey(config: any) {
+function getPendingKey(config: AxiosRequestConfig) {
   const { url, method, params } = config
   let { data } = config
   if (typeof data === 'string')
@@ -32,7 +32,7 @@ function getPendingKey(config: any) {
  * @param {any} config
  * @return {*}
  */
-function addPending(config: any) {
+function addPending(config: AxiosRequestConfig) {
   const pendingKey = getPendingKey(config)
   config.cancelToken = config.cancelToken
         || new axios.CancelToken((cancel) => {
@@ -47,7 +47,7 @@ function addPending(config: any) {
  * @param {any} config
  * @return {*}
  */
-function removePending(config: any) {
+function removePending(config: AxiosRequestConfig) {
   const pendingKey = getPendingKey(config)
   if (pendingMap.has(pendingKey)) {
     const cancelToken = pendingMap.get(pendingKey)

@@ -2,16 +2,17 @@
  * @Author: glows777 1914426389@qq.com
  * @Date: 2022-12-16 16:03:18
  * @LastEditors: glows777 1914426389@qq.com
- * @LastEditTime: 2022-12-27 16:42:10
- * @FilePath: \vue-admin\src\utils\api\request\index.ts
+ * @LastEditTime: 2023-02-03 18:00:13
+ * @FilePath: \glows777-admin-platform\src\utils\api\request\index.ts
  * @Description:
  *
  * Copyright (c) 2022 by glows777 1914426389@qq.com, All Rights Reserved.
  */
-import axios from 'axios'
+import axios, {AxiosError, AxiosRequestConfig, AxiosResponse} from 'axios'
 import cancel from './cancel'
 import loading from './loading'
 import errorHandle from './error'
+import { ResponseType, CustomOptionsType, LoadingOptionType } from '~/types/request'
 
 /**
  * @author: glows777
@@ -24,7 +25,7 @@ import errorHandle from './error'
 // 一般来说，再纯ts文件中，用process.env去获取比较合适
 // console.log(process.env.VITE_API_URL);
 
-function request(axiosConfig: AxiosConfigType, _customOptions: Partial<CustomOptionsType>, loadingOptions: LoadingOptionType) {
+function request<T = any>(axiosConfig: AxiosRequestConfig, _customOptions: Partial<CustomOptionsType>, loadingOptions: LoadingOptionType): Promise<ResponseType<T>> {
   const service = axios.create({
     // todo 这里可以结合.env文件，区分生产和开发环境
     baseURL: process.env.VITE_LOCATION_ORIGIN, // 设置统一的请求前缀
@@ -43,7 +44,7 @@ function request(axiosConfig: AxiosConfigType, _customOptions: Partial<CustomOpt
 
   // todo 这里可以做一个默认都得消息提示类型
   service.interceptors.request.use(
-    (config) => {
+    (config: AxiosRequestConfig) => {
       cancel.removePending(config)
       customOptions.repeat_request_cancel && cancel.addPending(config)
       if (customOptions.loading) {
@@ -59,7 +60,7 @@ function request(axiosConfig: AxiosConfigType, _customOptions: Partial<CustomOpt
   )
 
   service.interceptors.response.use(
-    (response) => {
+    (response: AxiosResponse) => {
       cancel.removePending(response.config)
       customOptions.loading && loading.closeLoading(customOptions)
       if (customOptions.code_message_show && response.data && response.data.code !== 0) {
@@ -71,7 +72,7 @@ function request(axiosConfig: AxiosConfigType, _customOptions: Partial<CustomOpt
       }
       return customOptions.concise_data_format ? response.data : response
     },
-    (error) => {
+    (error: AxiosError) => {
       error.config && cancel.removePending(error.config)
       customOptions.loading && loading.closeLoading(customOptions)
       customOptions.error_message_show && errorHandle.httpErrorStatusHandle(error)
