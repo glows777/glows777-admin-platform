@@ -2,7 +2,7 @@
  * @Author: glows777 1914426389@qq.com
  * @Date: 2023-01-03 17:03:40
  * @LastEditors: glows777 1914426389@qq.com
- * @LastEditTime: 2023-02-03 21:24:20
+ * @LastEditTime: 2023-02-09 20:56:09
  * @FilePath: \glows777-admin-platform\src\views\login\index.vue
  * @Description: 登录页面
  *
@@ -11,22 +11,27 @@
 <script setup lang="ts">
 import './index.scss'
 import { user } from '~/utils/api'
+import { useUserData } from '~/store/index'
 const router = useRouter()
 const userData = reactive({
   name: '',
   password: '',
 })
+const userDataStore = useUserData()
 const login = async () => {
   try {
     const res = await user.login(userData)
-
     if (Math.floor(res.code / 100) === 2)
-      router.push('/home')
+      userDataStore.setName(res.data.name)
+    userDataStore.setToken(res.data.token)
+    router.push('/home')
   }
   catch (error) {
     // 封装一个全局消息通知
   }
 }
+
+// todo 验证表单的合理性
 </script>
 
 <template>

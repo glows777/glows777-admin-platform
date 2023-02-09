@@ -2,7 +2,7 @@
  * @Author: glows777 1914426389@qq.com
  * @Date: 2022-12-15 15:22:53
  * @LastEditors: glows777 1914426389@qq.com
- * @LastEditTime: 2023-01-03 17:05:15
+ * @LastEditTime: 2023-02-09 21:49:51
  * @FilePath: \glows777-admin-platform\src\router\index.ts
  * @Description:
  *
@@ -26,6 +26,10 @@ const routes = [
     component: lazyImport('home'),
   },
   {
+    path: '/home',
+    component: lazyImport('home'),
+  },
+  {
     path: '/example',
     component: lazyImport('example'),
   },
@@ -40,4 +44,13 @@ const router = createRouter({
   routes,
 })
 
+router.beforeEach((to) => {
+  const userData: Record<string, any> | null = JSON.parse(
+    localStorage.getItem('userData')!,
+  )
+  if (to.path !== '/login' && !userData)
+    return '/login'
+})
+
+// todo 这里来个动态权限 用另外一个beforeEach 然后async就好了
 export default router

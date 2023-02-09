@@ -2,7 +2,7 @@
  * @Author: glows777 1914426389@qq.com
  * @Date: 2022-12-31 20:24:14
  * @LastEditors: glows777 1914426389@qq.com
- * @LastEditTime: 2023-02-03 21:35:05
+ * @LastEditTime: 2023-02-09 21:11:44
  * @FilePath: \glows777-admin-platform\src\views\example\index.vue
  * @Description:
  *
@@ -19,7 +19,7 @@
  * Copyright (c) 2022 by glows777 1914426389@qq.com, All Rights Reserved.
 -->
 <script setup lang="ts">
-import { useCounterStore } from '~/store/modules/counter/counter'
+import { useCounterStore } from '~/store'
 import { getListAPI, getMockUserStatus } from '~/utils/api'
 
 const counterStore = useCounterStore()
