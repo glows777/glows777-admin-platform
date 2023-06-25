@@ -2,7 +2,7 @@
  * @Author: glows777 1914426389@qq.com
  * @Date: 2022-12-31 20:24:14
  * @LastEditors: glows777 1914426389@qq.com
- * @LastEditTime: 2023-02-09 21:11:44
+ * @LastEditTime: 2023-03-02 22:39:15
  * @FilePath: \glows777-admin-platform\src\views\example\index.vue
  * @Description:
  *
@@ -20,7 +20,7 @@
 -->
 <script setup lang="ts">
 import { useCounterStore } from '~/store'
-import { getListAPI, getMockUserStatus } from '~/utils/api'
+import { getListAPI, getMockUserStatus } from '~/apis'
 
 const counterStore = useCounterStore()
 
@@ -46,6 +46,7 @@ const triggerMockRequest = async () => {
 <template>
   <!-- <hello-world msg="hhh"></hello-world> -->
   <!-- <notification type="error" message="uuuu" /> -->
+  <router-view />
   <h1 class="scss-test">
     .env.VITE_API_URL: =》 {{ viteApiUrl }}
   </h1>

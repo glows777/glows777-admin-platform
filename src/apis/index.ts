@@ -8,8 +8,8 @@
  *
  * Copyright (c) 2022 by glows777 1914426389@qq.com, All Rights Reserved.
  */
-import request from './request'
-import user from './api/user'
+import request from '../utils/request'
+import user from './modules/user'
 
 function getListAPI() {
   return request(

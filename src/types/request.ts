@@ -11,11 +11,6 @@ export interface ResponseType<T> {
   message: string
   data: T
 }
-
-// url: string,
-// method: string
-// [key: string]: any
-
 export interface LoadingOptionType {
   text?: string
   fullscreen?: boolean
